@@ -12,6 +12,7 @@ def creation(request):
 
 #class HomeView(TemplateView):
 	#template_name = 'website/home.html'
+	
 def get(self, request):
 	form = CreationForm()
 	return render(request, 'website/creation.html', {'form': form})
