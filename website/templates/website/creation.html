@@ -1,12 +1,24 @@
 {% extends "website/creationpage.html" %}
 
-{% block body %}
+{% block content %}
 <div class="container">
-  <h1> Sunglasses<h1/>
+  <h1>Sunglasses</h1>
   <form method="post">
-    {{ form.as_p}}
+    {{ form.description}}
+    <br>
+    {{ form.price }}
+    <br>
+    {{ form.quantity }}
+    <br>
     {% csrf_token %}
     <button type="submit">Submit</button>
   </form>
+  <h2>{{ description }}, {{ price }}, {{ quantity }}</h2>
+  {% for product in products %}
+    <h1>{{ product.description }}</h1>
+    <p>{{ product.price }}</p>
+
+  {% endfor %}
+
 </div>
 {% endblock %}
