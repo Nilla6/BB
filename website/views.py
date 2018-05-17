@@ -15,13 +15,13 @@ class CreationView(TemplateView):
 		return render(request, self.template_name, args)
 
 	def post(self, request):
-		form = CreationForm(request.POST, request.Files)
+		form = CreationForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save()
 			description = form.cleaned_data['description']
 			price = form.cleaned_data['price']
 			quantity = form.cleaned_data['quantity']
-			image = form.cleaned_data['image']
+			image = request.FILES['image']
+			form.save()
 			form = CreationForm()
 			return redirect('/')
 

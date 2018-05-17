@@ -1,8 +1,8 @@
 {% extends "website/creationpage.html" %}
 
 {% block content %}
+
 <div class="container">
-  <h1>Sunglasses</h1>
   <form method="post" enctype="multipart/form-data">
     {{ form.image }}
     <br>
@@ -16,12 +16,10 @@
     {% csrf_token %}
     <input type="submit" class="btn btn-light btn-lg btn-block" value="Create Item">
   </form>
-  <h2>{{ description }}, {{ price }}, {{ quantity }}</h2>
+</div>
+<br>
   {% for product in products %}
     <h1>{{ product.description }}</h1>
     <p>{{ product.price }}</p>
-
   {% endfor %}
-
-</div>
 {% endblock %}

@@ -22,11 +22,7 @@ class CreationForm(forms.ModelForm):
         }
     ))
 
-    image = forms.FileField(widget = forms.FileInput(
-        attrs = {
-            
-        }
-    ))
+    image = forms.ImageField()
 
     class Meta:
         model = Products
