@@ -5,21 +5,29 @@ class CreationForm(forms.ModelForm):
     description = forms.CharField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'Description of Product'
+            'placeholder': 'Description of Product',
 
         }
     ))
     price = forms.FloatField(widget=forms.NumberInput(
         attrs = {
-            'class': 'form-control'
+            'class': 'form-control',
+            'placeholder': 'Price of Product',
         }
     ))
     quantity = forms.IntegerField(widget = forms.NumberInput(
         attrs = {
-            'class': 'form-control'
+            'class': 'form-control',
+            'placeholder': 'How many do you have to sell',
+        }
+    ))
+
+    image = forms.FileField(widget = forms.FileInput(
+        attrs = {
+            
         }
     ))
 
     class Meta:
         model = Products
-        fields = ('description', 'price', 'quantity')
+        fields = ('description', 'price', 'quantity', 'image')

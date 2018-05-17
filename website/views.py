@@ -15,16 +15,17 @@ class CreationView(TemplateView):
 		return render(request, self.template_name, args)
 
 	def post(self, request):
-		form = CreationForm(request.POST)
+		form = CreationForm(request.POST, request.Files)
 		if form.is_valid():
 			form.save()
 			description = form.cleaned_data['description']
 			price = form.cleaned_data['price']
 			quantity = form.cleaned_data['quantity']
+			image = form.cleaned_data['image']
 			form = CreationForm()
 			return redirect('/')
 
-		args = {'form': form, 'description': description, 'price': price, 'quantity': quantity}
+		args = {'form': form, 'description': description, 'price': price, 'quantity': quantity, 'image': image}
 		return render(request, self.template_name, args)
 
 class HomeView(TemplateView):
