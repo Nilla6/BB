@@ -1,5 +1,5 @@
 from django import forms
-from website.models import Products
+from website.models import Product
 
 class CreationForm(forms.ModelForm):
     description = forms.CharField(widget=forms.TextInput(
@@ -9,13 +9,15 @@ class CreationForm(forms.ModelForm):
 
         }
     ))
-    price = forms.FloatField(widget=forms.NumberInput(
+
+    price = forms.DecimalField(widget=forms.NumberInput(
         attrs = {
             'class': 'form-control',
             'placeholder': 'Price of Product',
         }
     ))
-    quantity = forms.IntegerField(widget = forms.NumberInput(
+
+    quantity = forms.PositiveIntegerField(widget = forms.NumberInput(
         attrs = {
             'class': 'form-control',
             'placeholder': 'How many do you have to sell',
@@ -25,5 +27,5 @@ class CreationForm(forms.ModelForm):
     image = forms.ImageField()
 
     class Meta:
-        model = Products
+        model = Product
         fields = ('description', 'price', 'quantity', 'image')

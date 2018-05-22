@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from website.forms import CreationForm
 from django.views.generic import TemplateView
-from website.models import Products
+from website.models import Product
 
 # Create your views here.
 class CreationView(TemplateView):
@@ -9,7 +9,7 @@ class CreationView(TemplateView):
 
 	def get(self, request):
 		form = CreationForm()
-		products = Products.objects.all()
+		products = Product.objects.all()
 		args = {'form': form, 'products': products}
 		return render(request, self.template_name, args)
 
