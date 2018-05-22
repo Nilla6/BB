@@ -1,7 +1,20 @@
 {% extends "website/homepage.html" %}
 
 {% block content %}
-<div class="container">
-  <h1> Sunglasses</h1>
-</div>
+  <div class="container">
+    <h1> Sunglasses</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <br>
+          {% for product in products %}
+            <h1>{{ product.description }}</h2>
+            <p>{{ product.price }}</p>
+          {% endfor %}
+        <br>
+      </div>
+    </div>
+  </div>
 {% endblock %}

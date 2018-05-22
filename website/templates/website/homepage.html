@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#875648">
       <a class="navbar-brand" href="#">BB</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,10 @@
         </ul>
       </div>
       <form class="form-inline">
-        <img src="{% static '/website/img/shopping_cart.png' %}" class="img-responsive" href="#">
+        <img src="{% static '/website/img/shopping_cart.png' %}" alt="Shopping Cart" usemap="#Map">
+        <map name="Map" id="Map">
+          <area alt="" title="" href="#" shape="rect" coords="31,31,1,1" />
+        </map>
       </form>
     </nav>
 
@@ -56,7 +59,7 @@
     {% block content %}
 
     {% endblock %}
-
+<!--
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item disabled">
@@ -70,6 +73,7 @@
         </li>
       </ul>
     </nav>
+-->
   </div>
     <footer>
 

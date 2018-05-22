@@ -10,7 +10,6 @@ class CreationView(TemplateView):
 	def get(self, request):
 		form = CreationForm()
 		products = Products.objects.all()
-
 		args = {'form': form, 'products': products}
 		return render(request, self.template_name, args)
 

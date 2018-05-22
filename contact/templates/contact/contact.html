@@ -1,5 +1,16 @@
 {% extends "contact/contactpage.html" %}
 
 {% block content %}
-
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {{ form.name }}
+      <br>
+      {{ form.email }}
+      <br>
+      {{ form.description}}
+      <br>
+      {% csrf_token %}
+      <input type="submit" class="btn btn-light btn-lg btn-block" value="Submit">
+    </form>
+  </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
-from django.views.generic import ListView, DetailView
+from contact.views import ContactView
 from . import views
 
 urlpatterns = [
-	url(r'^', views.contact, name ='Contact'),
+	url(r'^', ContactView.as_view(), name ='Contact'),
 	]
