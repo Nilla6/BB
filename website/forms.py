@@ -17,7 +17,7 @@ class CreationForm(forms.ModelForm):
         }
     ))
 
-    quantity = forms.PositiveIntegerField(widget = forms.NumberInput(
+    quantity = forms.IntegerField(widget = forms.NumberInput(
         attrs = {
             'class': 'form-control',
             'placeholder': 'How many do you have to sell',

@@ -1,11 +1,12 @@
 from django import forms
 from orders.models import Order
+from orders.choices import *
 
-class OrderForm(form.ModelForm):
+class OrderForm(forms.ModelForm):
     fname = forms.CharField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'First Name',
+            'placeholder': 'John'
 
         }
     ))
@@ -13,7 +14,7 @@ class OrderForm(form.ModelForm):
     lname = forms.CharField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'Last Name',
+            'placeholder': 'Doe'
 
         }
     ))
@@ -21,14 +22,23 @@ class OrderForm(form.ModelForm):
     email = forms.EmailField(widget = forms.EmailInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'Email',
+            'placeholder': "you@example.com"
+
         }
     ))
 
-    address = description = forms.CharField(widget=forms.TextInput(
+    address = forms.CharField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'Address',
+            'placeholder': '1234 Main St'
+
+        }
+    ))
+
+    address2 = forms.CharField(required=False, widget=forms.TextInput(
+        attrs = {
+            'class': 'form-control',
+            'placeholder': "Apartment/Suite #"
 
         }
     ))
@@ -36,18 +46,38 @@ class OrderForm(form.ModelForm):
     postal_code = forms.IntegerField(widget = forms.NumberInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'Zip Code',
+            'placeholder': '12345'
+
         }
     ))
 
-    city = description = forms.CharField(widget=forms.TextInput(
+    city = forms.CharField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
-            'placeholder': 'City',
 
         }
     ))
+
+    state = forms.ModelChoiceField(
+        queryset = Order.objects.all(),
+        widget = forms.Select(
+            attrs = {
+                'class': 'custom-select d-block w-100'
+            }
+        ),
+        empty_label = 'Choose a State'
+    )
+
+    country = forms.ModelChoiceField(
+        queryset = Order.objects.all(),
+        widget = forms.Select(
+            attrs = {
+                'class': 'custom-select d-block w-100'
+            }
+        ),
+        empty_label = 'Choose a Country'
+    )
 
     class Meta:
         model = Order
-        fields = ('fname', 'lname', 'email', 'address', 'postal_code', 'city')
+        fields = ('fname', 'lname', 'email', 'address', 'postal_code', 'city', 'state', 'country')

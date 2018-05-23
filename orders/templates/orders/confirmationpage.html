@@ -3,11 +3,10 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Contact Us</title>
+    <title>Branded Boutique</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'contact/css/bootstrap.min.css' %}" type = 'text/css'/>
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}" type = 'text/css'/>
       	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
-    <script src="jquery-3.3.1.min.js"></script>
 
     <style type="text/css">
       html,
@@ -25,16 +24,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/contact/">Contact <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact/">Contact</a>
           </li>
         </ul>
       </div>
       <form class="form-inline">
-        <img src="{% static '/contact/img/shopping_cart.png' %}" alt="Shopping Cart" usemap="#Map">
+        <img src="{% static '/website/img/shopping_cart.png' %}" alt="Shopping Cart" usemap="#Map">
         <map name="Map" id="Map">
           <area alt="" title="" href="/cart/" shape="rect" coords="31,31,1,1" />
         </map>
@@ -48,16 +47,20 @@
       </div>
     </div>
 
-    <div class="container">
-      <br>
-        <p>If you do not recieve your product or have problems please contact me at [insert email address here] or fill out the form below and I will contact you as soon as possible.</p>
-      <br>
-    </div>
+    <div class="container-fluid" style="min-height:95%;">
+      <div class="row">
+        <div class="col-sm-2">
+          <br>
+
+          <br>
+        </div>
+      </div>
 
     {% block content %}
 
     {% endblock %}
 
+  </div>
     <footer>
 
     </footer>

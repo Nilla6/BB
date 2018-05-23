@@ -4,8 +4,8 @@ from django.views.generic import TemplateView
 from orders.models import Order
 
 # Create your views here.
-class OrderView(TemplateView):
-    template_name = 'order/checkout.html'
+class CheckoutView(TemplateView):
+    template_name = 'orders/checkout.html'
 
     def get(self, request):
         form = OrderForm()
@@ -20,12 +20,18 @@ class OrderView(TemplateView):
             lname = form.cleaned_data['lname']
             email = form.cleaned_data['email']
             address = form.cleaned_data['address']
+            address2 = form.cleaned_data['address2']
             postal_code = form.cleaned_data['postal_code']
             city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            country = form.cleaned_data['country']
             form.save()
 
-        args = {'form': form, 'fname': fname, 'lname': lname, 'email': email, 'address': address, 'postal_code': postal_code, 'city': city}
+        args = {'form': form, 'fname': fname, 'lname': lname, 'email': email, 'address': address, 'postal_code': postal_code, 'city': city, 'state': state, 'country': country}
         return render(request, self.template_name, args)
 
 class ConfirmationView(TemplateView):
-    template_name = 'order/confirmation.html'
+    template_name = 'orders/confirmation.html'
+
+class CartView(TemplateView):
+    template_name = 'orders/cart.html'
