@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}" type = 'text/css'/>
+    <link rel="stylesheet" href="{% static 'orders/css/bootstrap.min.css' %}" type = 'text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -12,14 +12,21 @@
     <title>Checkout</title>
 
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <link href="{% static 'orders/css/form-validation.css' %}" rel="stylesheet">
+    {% block head %}
+
+    {% endblock %}
   </head>
 
   <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Checkout</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+      </div>
+      {% block content %}
 
-  {% block content %}
-
-  {% endblock %}
+      {% endblock %}
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2018 Company Name</p>
@@ -34,11 +41,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script src="{% static 'jquery.com/jquery-3.3.1.slim.min.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'orders/js/jquery-slim.min.js' %}"><\/script>')</script>
+    <script src="{% static 'orders/js/popper.min.js' %}"></script>
+    <script src="{% static 'orders/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'orders/js/holder.min.js' %}"></script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {

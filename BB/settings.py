@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'shopbrandedboutique@gmail.com '
+EMAIL_HOST_PASSWORD = 'Email Password'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -129,3 +134,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Stripe Stuff
+
+#Test Keys
+STRIPE_PUBLISHABLE_KEY = 'pk_test_76wbsXhKk4wZxqNO4nEKXv3k'
+STRIPE_SECRET_KEY = 'sk_test_yF2G6nvashpAfoHQ0p0XupzK'
+
+#Live Keys
+#STRIPE_PUBLISHABLE_KEY = ''
+#STRIPE_SECRET_KEY = ''

@@ -13,3 +13,4 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     State = models.CharField(max_length=20, choices=STATE_CHOICES)
     Country = models.CharField(max_length=50, choices=COUNTRY_CHOICES)
+    stripe_id = models.CharField(max_length=255, default='NULL')

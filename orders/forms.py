@@ -80,4 +80,6 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('fname', 'lname', 'email', 'address', 'postal_code', 'city', 'state', 'country')
+        fields = ('fname', 'lname', 'email', 'address', 'postal_code', 'city', 'state', 'country', 'stripe_id')
+
+    

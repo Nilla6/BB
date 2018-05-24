@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from contact.forms import ContactMeForm
 from django.views.generic import TemplateView
 from contact.models import ContactMe
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 class ContactView(TemplateView):
@@ -19,6 +21,10 @@ class ContactView(TemplateView):
 			name = form.cleaned_data['name']
 			email = form.cleaned_data['email']
 			description = form.cleaned_data['description']
+			message = '%s %s' %(description, name)
+			subject = 'Message from BrandedBoutique.com'
+			emailTo = [settings.EMAIL_HOST_USER]
+			send_mail(subject, message, email, emailTo, fail_silently=True)
 			form.save()
 			form = ContactMeForm()
 
