@@ -1,21 +1,28 @@
 {% extends "website/homepage.html" %}
 
 {% block content %}
-
+  {% load staticfiles %}
   <div class="container">
     <h1> Sunglasses</h1>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2">
-          <br>
-          {% for product in products %}
-            <h1>{{ product.description }}</h2>
-            <p>{{ product.price }}</p>
-          {% endfor %}
-          <br>
+  </div>
+  <br>
+
+  <br>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="container">
+    <div class="row">
+      {% for product in products %}
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.description }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.description }}</h5>
+            <p class="card-text">{{ product.price }}</p>
+          </div>
         </div>
       </div>
+    {% endfor %}
     </div>
-  </div>
-
+    </div>
+</form>
 {% endblock %}

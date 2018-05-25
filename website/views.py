@@ -29,3 +29,9 @@ class CreationView(TemplateView):
 
 class HomeView(TemplateView):
 	template_name = 'website/home.html'
+
+	def get(self, request):
+		form = CreationForm()
+		products = Product.objects.all()
+		args = {'form': form, 'products': products}
+		return render(request, self.template_name, args)

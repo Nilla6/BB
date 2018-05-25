@@ -1,9 +1,8 @@
 {% extends "website/creationpage.html" %}
 
 {% block content %}
-
   <div class="container">
-    <form method="post" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
       {{ form.image }}
       <br>
       <br>
@@ -17,5 +16,4 @@
       <input type="submit" class="btn btn-light btn-lg btn-block" value="Create Item">
     </form>
   </div>
-
 {% endblock %}

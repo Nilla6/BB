@@ -4,6 +4,8 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
   Stripe.setPublishableKey = '{{ publishable }}';
+  var stripe = Stripe('pk_test_76wbsXhKk4wZxqNO4nEKXv3k');
+  var elements = stripe.elements();
 </script>
 
 {% endblock %}
@@ -13,7 +15,9 @@
 {% endblock %}
 
 {% block content %}
+
   <form action="" method="POST"> {% csrf_token %}
+<!--
     {{ form.NON_FIELD_ERRORS }}
     {{ form.field_errors }}
     <div class="row">
@@ -129,7 +133,7 @@
             <input type="checkbox" class="custom-control-input" id="same-address">
             <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
           </div>
-
+-->
           {{ form.stripe_id.as_hidden }}
           {% include "orders/stripe_form.html" %}
 <!--
