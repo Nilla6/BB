@@ -22,7 +22,7 @@ class ContactView(TemplateView):
 			email = form.cleaned_data['email']
 			description = form.cleaned_data['description']
 			message = '%s %s' %(description, name)
-			subject = 'Message from BrandedBoutique.com'
+			subject = 'Message from ShopBrandedBoutique.com'
 			emailTo = [settings.EMAIL_HOST_USER]
 			send_mail(subject, message, email, emailTo, fail_silently=True)
 			form.save()

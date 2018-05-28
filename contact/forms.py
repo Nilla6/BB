@@ -10,7 +10,7 @@ class ContactMeForm(forms.ModelForm):
         }
     ))
 
-    email = forms.CharField(widget=forms.EmailInput(
+    email = forms.EmailField(widget=forms.EmailInput(
         attrs = {
             'class': 'form-control',
             'placeholder': 'Enter email here',
