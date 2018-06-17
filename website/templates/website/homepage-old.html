@@ -3,16 +3,17 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Shopping Cart</title>
+    <title>Branded Boutique</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}" type = 'text/css'/>
+    <link rel="stylesheet" href="{% static '/website/css/bootstrap.min.css' %}" type = 'text/css'/>
       	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 
     <style type="text/css">
       html,
       body {
         height: 100%
-      }
+       }
+
     </style>
   </head>
 
@@ -32,9 +33,15 @@
           </li>
         </ul>
       </div>
+      <form class="form-inline">
+        <img src="{% static '/website/img/shopping_cart.png' %}" alt="Shopping Cart" usemap="#Map">
+        <map name="Map" id="Map">
+          <area alt="" title="" href="/cart/" shape="rect" coords="31,31,1,1" />
+        </map>
+      </form>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron">
       <div class="container">
         <h1 class="display-4">Branded Boutique</h1>
         <p class="lead">-- GET THE LOOK --</p>
@@ -53,7 +60,21 @@
     {% block content %}
 
     {% endblock %}
-    
+<!--
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+-->
   </div>
     <footer>
 

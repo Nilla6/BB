@@ -24,7 +24,7 @@ class ContactView(TemplateView):
 			message = '%s %s' %(description, name)
 			subject = 'Message from ShopBrandedBoutique.com'
 			emailTo = [settings.EMAIL_HOST_USER]
-			send_mail(subject, message, email, emailTo, fail_silently=True)
+			send_mail(subject, message, email, emailTo, fail_silently=False)
 			form.save()
 			form = ContactMeForm()
 
